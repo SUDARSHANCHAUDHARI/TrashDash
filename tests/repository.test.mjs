@@ -41,6 +41,15 @@ test("repository guidance preserves privacy and release boundaries", () => {
   assert.match(security, /Report a vulnerability/);
 });
 
+test("README identifies the project author and studio", () => {
+  assert.match(readme, /## Author/);
+  assert.match(readme, /Sudarshan Chaudhari/);
+  assert.match(readme, /SudarshanTechLabs/);
+  assert.match(readme, /Bangkok, Thailand/);
+  assert.match(readme, /github\.com\/SUDARSHANCHAUDHARI/);
+  assert.match(readme, /sudarshantechlabs@gmail\.com/);
+});
+
 test("toolchain metadata is explicit and remains dependency-free", () => {
   const packageData = JSON.parse(packageJson);
   assert.equal(packageData.packageManager, "pnpm@10.28.2");
