@@ -7,7 +7,11 @@ Security fixes are applied to the latest version on the default branch.
 ## Reporting a vulnerability
 
 Please do not open a public issue for a suspected vulnerability. Use the repository's
-private **Security → Report a vulnerability** form on GitHub and include:
+private **Security → Report a vulnerability** form on GitHub when it is available. If the
+form is unavailable, email `sudarshantechlabs@gmail.com` with the subject
+`TrashDash security report`.
+
+Include:
 
 - the affected file or behavior;
 - steps to reproduce the issue;
