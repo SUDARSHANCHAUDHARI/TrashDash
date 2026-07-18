@@ -1,0 +1,23 @@
+{
+  "name": "trashdash",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A standalone drag-and-drop browser game about a trash bin that refuses a document.",
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "check": "node --check script.js && node --test tests/*.test.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "keywords": [
+    "game",
+    "vanilla-javascript",
+    "pointer-events",
+    "svg",
+    "accessible"
+  ],
+  "license": "MIT"
+}

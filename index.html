@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TrashDash is a tiny drag-and-drop game about one very stubborn trash bin."
+    />
+    <meta name="theme-color" content="#8dbfd4" />
+    <title>TrashDash — A stubborn little trash bin</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#game-stage">Skip to the game</a>
+
+    <div class="desktop-shell">
+      <header class="window-bar" aria-label="TrashDash controls">
+        <div class="window-brand">
+          <span class="window-lights" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <div>
+            <p class="eyebrow">C:\DESKTOP\TRASHDASH.EXE</p>
+            <h1>TrashDash</h1>
+          </div>
+        </div>
+
+        <p class="mission-copy" id="game-instructions">
+          Drag the document into the bin. It has other plans.
+        </p>
+
+        <div class="toolbar">
+          <div class="attempt-counter" aria-label="Failed drop attempts">
+            <span>Refusals</span>
+            <strong id="attempt-count">0 / 7</strong>
+          </div>
+          <button
+            class="icon-button"
+            id="sound-toggle"
+            type="button"
+            aria-pressed="true"
+            aria-label="Turn sound off"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+              <path class="sound-wave" d="M16 8.2a5 5 0 0 1 0 7.6M18.5 5.5a9 9 0 0 1 0 13" />
+              <path class="sound-slash" d="m5 4 14 16" />
+            </svg>
+            <span class="button-label">Sound on</span>
+          </button>
+          <button class="reset-button" id="reset-button" type="button">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 8a8 8 0 1 1-1 7M5 8V3m0 5h5" />
+            </svg>
+            Reset
+          </button>
+        </div>
+      </header>
+
+      <main class="desktop-content">
+        <section
+          class="game-stage"
+          id="game-stage"
+          aria-label="Desktop game area"
+          aria-describedby="game-instructions keyboard-help"
+        >
+          <div class="wallpaper-mark" aria-hidden="true">TD</div>
+
+          <div class="desktop-icon folder folder-projects" aria-hidden="true">
+            <svg viewBox="0 0 100 82">
+              <path d="M7 20h34l8 10h44v45H7z" />
+              <path d="M7 20h35l8 11H7z" class="folder-tab" />
+              <path d="M7 34h86" class="folder-line" />
+            </svg>
+            <span>Projects</span>
+          </div>
+
+          <div class="desktop-icon folder folder-archive" aria-hidden="true">
+            <svg viewBox="0 0 100 82">
+              <path d="M7 20h34l8 10h44v45H7z" />
+              <path d="M7 20h35l8 11H7z" class="folder-tab" />
+              <path d="M7 34h86" class="folder-line" />
+            </svg>
+            <span>Definitely Important</span>
+          </div>
+
+          <div class="desktop-icon folder folder-cover" id="cover-folder" aria-hidden="true">
+            <svg viewBox="0 0 100 82">
+              <path d="M7 20h34l8 10h44v45H7z" />
+              <path d="M7 20h35l8 11H7z" class="folder-tab" />
+              <path d="M7 34h86" class="folder-line" />
+            </svg>
+            <span>Tax Stuff</span>
+          </div>
+
+          <div class="sticky-note" aria-hidden="true">
+            <span>TO DO</span>
+            <s>empty trash</s>
+            <em>try again?</em>
+          </div>
+
+          <div class="coffee-cup" aria-hidden="true">
+            <svg viewBox="0 0 92 96">
+              <path class="steam steam-one" d="M32 24c-8-10 8-12 0-22" />
+              <path class="steam steam-two" d="M51 24c-8-10 8-12 0-22" />
+              <path class="cup" d="M17 30h53l-5 51H23z" />
+              <path class="handle" d="M68 41h8c17 0 14 27-3 27h-6" />
+              <path class="coffee" d="M20 31h47" />
+              <text x="44" y="61">404</text>
+            </svg>
+          </div>
+
+          <div class="pencil" aria-hidden="true"><span></span></div>
+
+          <button
+            class="desktop-document"
+            id="document"
+            type="button"
+            aria-label="Document. Drag this into the trash bin."
+            aria-describedby="keyboard-help"
+            aria-grabbed="false"
+          >
+            <svg aria-hidden="true" viewBox="0 0 132 164">
+              <path class="paper-shadow" d="M13 9h78l30 30v116H13z" />
+              <path class="paper" d="M7 3h78l30 30v116H7z" />
+              <path class="paper-fold" d="M85 3v30h30" />
+              <path class="paper-line line-one" d="M25 55h70" />
+              <path class="paper-line" d="M25 72h61" />
+              <path class="paper-line" d="M25 89h70" />
+              <path class="paper-line" d="M25 106h46" />
+              <path class="paper-stamp" d="M70 117h29v17H70z" />
+              <text x="84.5" y="129">NOPE</text>
+              <path class="paper-clip" d="M29 42V19c0-14 19-14 19 0v27c0 9-12 9-12 0V23" />
+            </svg>
+            <span>DRAFT_final_FINAL.doc</span>
+          </button>
+
+          <div
+            class="bin-character"
+            id="trash-bin"
+            role="img"
+            aria-label="A suspicious cartoon trash bin"
+          >
+            <div class="bin-speech" id="bin-speech" aria-hidden="true">Not today.</div>
+            <svg aria-hidden="true" viewBox="0 0 180 230">
+              <g class="plant-disguise">
+                <path class="plant-stem" d="M90 83V28M91 49C64 49 54 31 60 20c18 1 31 10 31 29ZM90 61c25 0 38-15 36-29-18-1-31 9-36 29Z" />
+                <path class="plant-leaf" d="M91 49C64 49 54 31 60 20c18 1 31 10 31 29ZM90 61c25 0 38-15 36-29-18-1-31 9-36 29Z" />
+              </g>
+              <g class="bin-arms">
+                <path d="M28 127C4 112 2 90 13 79M150 127c24-15 26-37 15-48" />
+                <circle cx="12" cy="77" r="6" />
+                <circle cx="166" cy="77" r="6" />
+              </g>
+              <g class="bin-wheels">
+                <circle cx="54" cy="208" r="14" />
+                <circle cx="126" cy="208" r="14" />
+                <circle class="wheel-hub" cx="54" cy="208" r="5" />
+                <circle class="wheel-hub" cx="126" cy="208" r="5" />
+              </g>
+              <path class="bin-body-shadow" d="M39 82h106l-10 119H49z" />
+              <path class="bin-body" d="M34 77h106l-10 119H44z" />
+              <path class="bin-rim" d="M30 74h114v24H30z" />
+              <path class="bin-stripe" d="m61 110 4 55M87 107v61M114 110l-5 55" />
+              <g class="bin-face">
+                <path class="bin-brow left-brow" d="m53 119 23 5" />
+                <path class="bin-brow right-brow" d="m119 119-23 5" />
+                <ellipse class="bin-eye" cx="68" cy="133" rx="10" ry="12" />
+                <ellipse class="bin-eye" cx="106" cy="133" rx="10" ry="12" />
+                <circle class="bin-pupil left-pupil" cx="71" cy="135" r="4" />
+                <circle class="bin-pupil right-pupil" cx="109" cy="135" r="4" />
+                <path class="bin-mouth" d="M73 168c9-8 20-8 29 0" />
+              </g>
+              <g class="bin-lid">
+                <path class="lid-shadow" d="M21 68h132l-8 18H29z" />
+                <path class="lid-top" d="M20 59h128l7 15H17z" />
+                <path class="lid-handle" d="M68 58V43h32v15" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="status-toast" id="status-toast" role="status" aria-live="polite">
+            <span class="toast-dot" aria-hidden="true"></span>
+            <span id="status-message">Grab the document and aim for the bin.</span>
+          </div>
+
+          <div class="progress-dots" id="progress-dots" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="victory-card" id="victory-card" role="status" aria-live="polite" hidden>
+            <span class="victory-stamp" aria-hidden="true">FILED!</span>
+            <p>Trash accepted reluctantly.</p>
+            <button id="play-again-button" type="button">Play again</button>
+          </div>
+
+          <div class="confetti" id="confetti" aria-hidden="true"></div>
+        </section>
+
+        <p class="keyboard-help" id="keyboard-help">
+          Pointer: drag and drop. Keyboard: focus the file, press Space to grab, use arrow keys,
+          then press Space to drop.
+        </p>
+      </main>
+    </div>
+
+    <noscript>
+      <p class="noscript-message">TrashDash needs JavaScript enabled so the bin can misbehave.</p>
+    </noscript>
+    <script src="script.js"></script>
+  </body>
+</html>
