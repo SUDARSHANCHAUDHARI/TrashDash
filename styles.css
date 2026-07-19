@@ -248,6 +248,12 @@ a:focus-visible {
   outline-offset: 4px;
 }
 
+.desktop-document:focus-visible {
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 0 0 12px var(--ink);
+}
+
 .desktop-content {
   display: flex;
   min-height: calc(100vh - 86px);

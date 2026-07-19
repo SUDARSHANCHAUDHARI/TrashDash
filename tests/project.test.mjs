@@ -77,3 +77,28 @@ test("responsive motion and generated audio requirements are covered", () => {
   assert.match(html, /id="sound-toggle"/);
   assert.match(html, /id="reset-button"/);
 });
+
+test("shared TinyChaos UI and document focus contracts remain intact", () => {
+  const sharedTokens = {
+    ink: "#15152a",
+    paper: "#fff5df",
+    coral: "#ff5d5d",
+    blue: "#4f7cff",
+    butter: "#ffd166",
+    mint: "#58d6a9",
+    lilac: "#b695ff",
+  };
+
+  Object.entries(sharedTokens).forEach(([token, value]) => {
+    assert.ok(css.includes(`--${token}: ${value};`), `Missing exact ${token} token`);
+  });
+  assert.match(html, /href="\.\.\/TinyChaos\/"/);
+  assert.match(html, /TrashDash · by Sudarshan Chaudhari/);
+  assert.match(html, /class="game-stage"[\s\S]*?id="game-stage"[\s\S]*?tabindex="-1"/);
+  assert.match(css, /(?:button|a|\.game-stage):focus-visible[\s\S]*?outline:\s*4px solid var\(--blue\)/);
+  assert.match(
+    css,
+    /\.desktop-document:focus-visible\s*\{[^}]*box-shadow:[^}]*var\(--paper\)[^}]*var\(--ink\)/s,
+  );
+  assert.doesNotMatch(css, /min-width:\s*320px/);
+});
