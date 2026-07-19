@@ -1,19 +1,24 @@
 :root {
-  --wallpaper: #8dbfd4;
-  --wallpaper-deep: #6fa8bf;
-  --chrome: #d7d4cb;
-  --paper: #fffdf4;
-  --ink: #252a31;
-  --muted-ink: #5d6770;
-  --danger: #e74d36;
-  --folder: #f3c94f;
-  --folder-dark: #d6a92b;
-  --success: #4b9a63;
+  --ink: #15152a;
+  --paper: #fff5df;
+  --coral: #ff5d5d;
+  --blue: #4f7cff;
+  --butter: #ffd166;
+  --mint: #58d6a9;
+  --lilac: #b695ff;
+  --wallpaper: var(--blue);
+  --wallpaper-deep: #315eca;
+  --chrome: var(--paper);
+  --muted-ink: #4f4b5d;
+  --danger: var(--coral);
+  --folder: var(--butter);
+  --folder-dark: #c9972e;
+  --success: #2d795d;
   --bin: #71848b;
   --bin-light: #a9b7b8;
-  --shadow: rgba(37, 42, 49, 0.22);
-  --display-font: "Arial Black", Impact, Haettenschweiler, sans-serif;
-  --body-font: "Avenir Next", "Trebuchet MS", Verdana, sans-serif;
+  --shadow: rgb(21 21 42 / 22%);
+  --display-font: Impact, Haettenschweiler, "Arial Narrow Bold", "Franklin Gothic Condensed", sans-serif;
+  --body-font: Inter, ui-rounded, "SF Pro Rounded", "Segoe UI", sans-serif;
   --utility-font: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   color-scheme: light;
 }
@@ -23,16 +28,16 @@
 }
 
 html {
-  min-width: 320px;
+  min-width: 0;
   background: var(--wallpaper);
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   min-height: 100vh;
   min-height: 100svh;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   color: var(--ink);
   background: var(--wallpaper);
   font-family: var(--body-font);
@@ -88,7 +93,7 @@ button {
   padding: 0.7rem clamp(1rem, 3vw, 2.5rem);
   border-bottom: 3px solid var(--ink);
   background: var(--chrome);
-  box-shadow: 0 6px 0 rgba(37, 42, 49, 0.12);
+  box-shadow: 0 6px 0 var(--ink);
 }
 
 .window-brand {
@@ -154,10 +159,10 @@ h1 {
   align-content: center;
   min-width: 94px;
   padding: 0.4rem 0.7rem;
-  border: 2px solid var(--ink);
-  border-radius: 0.4rem;
-  background: #ebe9e2;
-  box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #aaa69c;
+  border: 3px solid var(--ink);
+  border-radius: 0.75rem;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 .attempt-counter span {
@@ -181,10 +186,10 @@ h1 {
   gap: 0.45rem;
   min-height: 44px;
   padding: 0.55rem 0.8rem;
-  border: 2px solid var(--ink);
-  border-radius: 0.4rem;
-  background: #f3f1e9;
-  box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #aaa69c;
+  border: 3px solid var(--ink);
+  border-radius: 0.75rem;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--blue);
   font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
@@ -193,14 +198,14 @@ h1 {
 .icon-button:hover,
 .reset-button:hover,
 .victory-card button:hover {
-  background: #fffdf4;
+  background: var(--butter);
   transform: translateY(-1px);
 }
 
 .icon-button:active,
 .reset-button:active,
 .victory-card button:active {
-  box-shadow: inset 2px 2px 0 #aaa69c, inset -2px -2px 0 #fff;
+  box-shadow: 1px 1px 0 var(--ink);
   transform: translateY(1px);
 }
 
@@ -237,10 +242,10 @@ h1 {
 }
 
 button:focus-visible,
-.game-stage:focus-visible {
-  outline: 4px solid var(--paper);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 6px var(--ink);
+.game-stage:focus-visible,
+a:focus-visible {
+  outline: 4px solid var(--blue);
+  outline-offset: 4px;
 }
 
 .desktop-content {
@@ -977,6 +982,24 @@ button:focus-visible,
   text-align: center;
 }
 
+.tinychaos-credit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding: 0.8rem clamp(0.75rem, 3vw, 2.5rem);
+  border-top: 3px solid var(--ink);
+  color: var(--ink);
+  background: var(--paper);
+  font: 800 0.72rem / 1.35 var(--body-font);
+}
+
+.tinychaos-credit a {
+  font-family: var(--utility-font);
+  font-weight: 900;
+  text-underline-offset: 0.2em;
+}
+
 .noscript-message {
   position: fixed;
   z-index: 200;
@@ -1147,6 +1170,11 @@ button:focus-visible,
 
   .keyboard-help {
     font-size: 0.58rem;
+  }
+
+  .tinychaos-credit {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
